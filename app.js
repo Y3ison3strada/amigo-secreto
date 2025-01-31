@@ -37,20 +37,28 @@ function mostrarAmigos() {
     
     }
 
-function sortearAmigo(){
+    function sortearAmigo() {
+        if (listaNombre.length < 2) {
+            alert("Debe haber al menos 2 amigos para sortear.");
+            return;
+        }
     
-}    
-
-
-
-
-
-
-
-
-
-
+        let listaMezclada = [...listaNombre];
+    
+        do {
+            listaMezclada.sort(() => Math.random() - 0.5);
+        } while (listaNombre.some((nombre, i) => nombre === listaMezclada[i]));
+    
+        let resultadoLista = document.getElementById("resultado");
+        resultadoLista.innerHTML = ""; // Limpiar antes de agregar nuevos resultados
+    
+        for (let i = 0; i < listaNombre.length; i++) {
+            let item = document.createElement("li");
+            item.textContent = `${listaNombre[i]} → ${listaMezclada[i]}`; // Ejemplo: "Juan → María"
+            resultadoLista.appendChild(item);
+        }
+    }
+    
 
 mostrarAmigos();
-agregarAmigo();
 
