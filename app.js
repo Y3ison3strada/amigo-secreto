@@ -20,12 +20,26 @@ function agregarAmigo(){
         return;
     }
     listaNombre.push(amigo)
-    document.getElementById("amigo").value = ""
+    document.getElementById("amigo").value = ""//limpiar input
     document.getElementById("amigo").focus()
-    console.log(listaNombre.length);
-    console.log(listaNombre);
+    mostrarAmigos();
 }
 
+function mostrarAmigos() {
+    let listaAmigos = document.getElementById("listaAmigos");//Selecionar lista
+    listaAmigos.innerHTML = ""; //limpiar lista
+
+    for(let i = 0; i < listaNombre.length; i++){
+        let item = document.createElement("li");//crear elemento
+        item.textContent = listaNombre[i];//agregar texto
+        listaAmigos.appendChild(item);//agregar a la lista  
+     }
+    
+    }
+
+function sortearAmigo(){
+    
+}    
 
 
 
@@ -37,15 +51,6 @@ function agregarAmigo(){
 
 
 
-
-
-
-
-
-
-
-
-
-
+mostrarAmigos();
 agregarAmigo();
 
